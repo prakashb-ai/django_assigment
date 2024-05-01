@@ -52,10 +52,10 @@ def delete_vendor(request, vendor_id):
 
 def create_purchase_order(request):
     if request.method == 'POST':
-        data = request.POST  # Assuming form data is sent
+        data = request.POST  
         purchase_order = PurchaseOrderSerializer.objects.create(
             po_number=data['po_number'],
-            vendor_id=data['vendor_id'],  # Assuming vendor_id is sent
+            vendor_id=data['vendor_id'], 
             order_date=data['order_date'],
             delivery_date=data['delivery_date'],
             items=data['items'],
@@ -92,7 +92,7 @@ def get_purchase_order(request, po_id):
 def update_purchase_order(request, po_id):
     purchase_order = get_object_or_404(PurchaseOrder, id=po_id)
     if request.method == 'PUT':
-        data = request.POST  # Assuming form data is sent
+        data = request.POST 
         purchase_order.po_number = data['po_number']
         purchase_order.vendor_id = data['vendor_id']
         purchase_order.order_date = data['order_date']
